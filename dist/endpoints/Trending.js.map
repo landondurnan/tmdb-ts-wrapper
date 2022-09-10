@@ -1,0 +1,1 @@
+{"version":3,"file":"Trending.js","sourceRoot":"","sources":["../../src/endpoints/Trending.ts"],"names":[],"mappings":";;;;;;AACA,0DAAkC;AAElC,MAAa,QAAS,SAAQ,kBAAQ;IAElC;;;;;;MAME;IACK,WAAW,CAAC,UAA6C,EAAE,WAA2B;QACzF,OAAO,IAAI,CAAC,IAAI,CAAkB,YAAY,UAAU,IAAI,WAAW,EAAE,CAAC,CAAA;IAC9E,CAAC;CAEJ;AAbD,4BAaC"}

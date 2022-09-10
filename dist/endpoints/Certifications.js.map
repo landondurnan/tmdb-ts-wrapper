@@ -1,0 +1,1 @@
+{"version":3,"file":"Certifications.js","sourceRoot":"","sources":["../../src/endpoints/Certifications.ts"],"names":[],"mappings":";;;;;;AACA,0DAAkC;AAElC,MAAa,cAAe,SAAQ,kBAAQ;IAExC;;;;;;MAME;IACK,sBAAsB;QACzB,OAAO,IAAI,CAAC,IAAI,CAAsB,0BAA0B,CAAC,CAAA;IACrE,CAAC;IAED;;;;;;MAME;IACK,mBAAmB;QACtB,OAAO,IAAI,CAAC,IAAI,CAAmB,uBAAuB,CAAC,CAAA;IAC/D,CAAC;CAEJ;AAxBD,wCAwBC"}

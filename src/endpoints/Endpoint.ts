@@ -1,5 +1,5 @@
-import { $fetch } from 'ohmyfetch';
-import { Config } from '../types';
+import { $fetch } from "ohmyfetch";
+import { Config } from "../types";
 
 /**
  * Base Endpoint
@@ -7,7 +7,7 @@ import { Config } from '../types';
 export default class Endpoint {
   protected config: Config;
   protected version: number;
-  private BASE_URL = 'https://api.themoviedb.org/';
+  private BASE_URL = "https://api.themoviedb.org/";
 
   constructor(config: Config, version: 3 | 4 = 3) {
     this.config = config;
@@ -18,26 +18,22 @@ export default class Endpoint {
    * Utility function to apply config language if language is not overrided
    */
   protected applyTranslation(obj?: Object) {
-    if (obj && !obj.hasOwnProperty('language')) {
+    if (obj && !obj.hasOwnProperty("language")) {
       return { ...obj, language: this.config.language };
     }
 
     return obj;
   }
 
-  protected async _get<T>(
-    endpoint: string,
-    options?: Object,
-    version?: 3 | 4
-  ) {
-    return $fetch<T>(
-      `${this.BASE_URL}/${
-        version ? version : this.version
-      }/${endpoint}${options ? `?${this.queryString(options)}` : ''}`,
+  protected async _get<T>(endpoint: string, options?: Object, version?: 3 | 4) {
+    return fetch<T>(
+      `${this.BASE_URL}/${version ? version : this.version}/${endpoint}${
+        options ? `?${this.queryString(options)}` : ""
+      }`,
       {
         headers: {
           Authorization: `Bearer ${this.config.access_token}`,
-          'Content-Type': 'application/json;charset=utf-8',
+          "Content-Type": "application/json;charset=utf-8",
         },
       }
     );
@@ -49,16 +45,16 @@ export default class Endpoint {
     qs?: Object,
     version?: 3 | 4
   ) {
-    return $fetch<T>(
-      `${this.BASE_URL}/${
-        version ? version : this.version
-      }/${endpoint}${qs ? `?${this.queryString(qs)}` : ''}`,
+    return fetch<T>(
+      `${this.BASE_URL}/${version ? version : this.version}/${endpoint}${
+        qs ? `?${this.queryString(qs)}` : ""
+      }`,
       {
-        method: 'POST',
+        method: "POST",
         body,
         headers: {
           Authorization: `Bearer ${this.config.access_token}`,
-          'Content-Type': 'application/json;charset=utf-8',
+          "Content-Type": "application/json;charset=utf-8",
         },
       }
     );
@@ -70,17 +66,17 @@ export default class Endpoint {
     qs?: Object,
     version?: 3 | 4
   ) {
-    return $fetch<T>(
-      `${this.BASE_URL}/${
-        version ? version : this.version
-      }/${endpoint}${qs ? `?${this.queryString(qs)}` : ''}`,
+    return fetch<T>(
+      `${this.BASE_URL}/${version ? version : this.version}/${endpoint}${
+        qs ? `?${this.queryString(qs)}` : ""
+      }`,
       {
-        method: 'DELETE',
-        body,
         headers: {
           Authorization: `Bearer ${this.config.access_token}`,
-          'Content-Type': 'application/json;charset=utf-8',
+          "Content-Type": "application/json;charset=utf-8",
         },
+        method: "DELETE",
+        data: body,
       }
     );
   }
@@ -91,17 +87,17 @@ export default class Endpoint {
     qs?: Object,
     version?: 3 | 4
   ) {
-    return $fetch<T>(
-      `${this.BASE_URL}/${
-        version ? version : this.version
-      }/${endpoint}${qs ? `?${this.queryString(qs)}` : ''}`,
+    return fetch<T>(
+      `${this.BASE_URL}/${version ? version : this.version}/${endpoint}${
+        qs ? `?${this.queryString(qs)}` : ""
+      }`,
       {
-        method: 'PUT',
-        body,
         headers: {
           Authorization: `Bearer ${this.config.access_token}`,
-          'Content-Type': 'application/json;charset=utf-8',
+          "Content-Type": "application/json;charset=utf-8",
         },
+        method: "PUT",
+        data: body,
       }
     );
   }
@@ -112,11 +108,11 @@ export default class Endpoint {
         let value = obj[key];
 
         if (Array.isArray(value)) {
-          value = value.join(',');
+          value = value.join(",");
         }
 
         return `${key}=${value}`;
       })
-      .join('&');
+      .join("&");
   }
 }
